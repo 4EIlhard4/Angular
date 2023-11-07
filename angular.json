@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular_sis414g1022023": {
+    "Prueba_1": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular_sis414g1022023",
+            "outputPath": "dist/prueba-1",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular_sis414g1022023:build:production"
+              "browserTarget": "Prueba_1:build:production"
             },
             "development": {
-              "browserTarget": "angular_sis414g1022023:build:development"
+              "browserTarget": "Prueba_1:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular_sis414g1022023:build"
+            "browserTarget": "Prueba_1:build"
           }
         },
         "test": {

@@ -1,0 +1,101 @@
+header{
+    position: relative;
+    background: url('../../../assets/images/Mio_3.jpg') center/cover no-repeat;
+    color: black;
+    text-align: center;
+    padding: 10em 1em;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 1;
+}
+  
+header::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+  
+main{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1em;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 99;
+  }
+
+.cell{
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    
+}
+  
+h2{
+    color: #333;
+    text-align: center;
+}
+  
+p{
+    color: #555;
+}
+  
+ul{
+    list-style: none;
+    padding: 0;
+}
+  
+li{
+    margin-bottom: 0.5em;
+}
+  
+footer{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    z-index: 1;
+}
+  
+.image-left{
+    float: left;
+    margin-right: 1em;
+    max-width: 200px;
+    max-height: 100px;
+}
+
+.image-bg{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+  
+.cell .justificado{
+    text-align: justify;
+}
+
+.marca-de-agua {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2em;
+  opacity: 0.3;
+  color: #ccc;
+  z-index: -1;
+}
