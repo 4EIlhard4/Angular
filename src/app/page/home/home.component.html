@@ -42,6 +42,38 @@
             <li><b>5.1.12</b> Laboratorio "Functions (Part 2)" <a href="../../../assets/js/Lab_7.js">Ver</a></li>
         </ul>
     </div>
+    <div class="cell table-container">
+        <h2 id="tabla_h3">API REST</h2>
+        <table class="T1">
+          <tr>
+            <th>Nº</th>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>USUARIO</th>
+            <th>EMAIL</th>
+          </tr>
+          <tr *ngFor="let user of dataUsers; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.id}}</td>
+            <td>{{ user.name}}</td>
+            <td>{{ user.username}}</td>
+            <td>{{ user.email}}</td>
+          </tr>
+        </table>
+        <br>
+        <table class="T1">
+          <tr>
+            <th>Nº</th>
+            <th>ABREV</th>
+            <th>NOMBRE</th>
+          </tr>
+          <tr *ngFor="let item of dataLanguages; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.Languages.abrev}}</td>
+            <td>{{ item.Languages.name}}</td>
+          </tr>
+        </table>
+    </div>
   </main>
   <div class="marca-de-agua">INTERESTELLAR</div>
   <footer>

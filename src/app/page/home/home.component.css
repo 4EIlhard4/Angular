@@ -34,7 +34,7 @@ main{
     z-index: 99;
   }
 
-.cell{
+.cell {
     width: 30%;
     background-color: rgba(255, 255, 255, 0.8);
     margin: 1em;
@@ -43,12 +43,29 @@ main{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
-    
+}
+
+.cell.table-container {
+    width: auto; /* Permitir que se ajuste al contenido */
+    margin-top: 0; /* Separar el nuevo div de los existentes */
 }
   
+.cell.table-container table {
+    width: 100%; /* Ajustar al 100% del ancho del contenedor */
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+
 h2{
     color: #333;
     text-align: center;
+}
+
+#tabla_h3{
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 0;
 }
   
 p{
@@ -98,4 +115,19 @@ footer{
   opacity: 0.3;
   color: #ccc;
   z-index: -1;
+}
+
+.T1 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.T1 th, .T1 td {
+    border: 1px solid #000000;
+    padding: 1px;
+    text-align: center;
+}
+
+.T1 th {
+    background-color: #99ddaa;
 }
