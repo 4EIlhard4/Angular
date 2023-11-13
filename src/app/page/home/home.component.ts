@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LenguajesService } from 'src/app/services/lenguajes.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { CargarScriptsService } from './../../services/cargar-scripts.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,10 @@ export class HomeComponent implements OnInit {
   dataUsers: any = [];
   dataLanguages : any = [];
 
-  constructor(private usersServices: UsuariosService, private lenguajesServices: LenguajesService) {}
+  constructor(private usersServices: UsuariosService, private lenguajesServices: LenguajesService,
+    private _CargarScripts: CargarScriptsService) {
+      _CargarScripts.Cargar(["stars"])
+    }
 
   ngOnInit() 
   {

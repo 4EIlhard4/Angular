@@ -131,3 +131,10 @@ footer{
 .T1 th {
     background-color: #99ddaa;
 }
+
+#particles-js{
+	height: 100vh; 
+	width: 100%;
+    position: fixed;
+    z-index: -3;
+}
