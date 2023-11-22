@@ -69,7 +69,7 @@ export class AppComponent {
                     enable: true,
                     area: 800,
                 },
-                value: 300,
+                value: 150,
             },
             opacity: {
                 value: 1,

@@ -1,7 +1,11 @@
-<app-home></app-home>
+<router-outlet></router-outlet>
 <ng-particles
     [id]="id"
     [options]="particlesOptions"
     [particlesInit]="particlesInit"
     (particlesLoaded)="particlesLoaded($event)"
 ></ng-particles>
+<nav>
+    <a routerLink="/home" routerLinkActive="active">..</a>
+    <a routerLink="/otro" routerLinkActive="active">--</a>
+</nav>

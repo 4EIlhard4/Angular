@@ -1,0 +1,58 @@
+.cell {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 0;
+}
+
+.cell.table-container {
+    width: auto; /* Permitir que se ajuste al contenido */
+}
+  
+.cell.table-container table {
+    width: 100%; /* Ajustar al 100% del ancho del contenedor */
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+h2{
+    text-align: center;
+}
+
+/* En tu archivo de estilos CSS personalizado */
+
+.table-container {
+    margin-top: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #000000; /* Agrega bordes a todas las celdas */
+  }
+  
+  .table th {
+    background-color: #343a40; /* Color de fondo del encabezado */
+    color: #ffffff; /* Color del texto del encabezado */
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa; /* Color de fondo de las filas impares */
+  }
+  
+  .btn-success {
+    margin-bottom: 10px;
+  }
+  
+  /* Agrega más estilos según sea necesario */
+  

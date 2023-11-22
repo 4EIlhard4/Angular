@@ -1,0 +1,53 @@
+<div class="cell table-container">
+    <h2>PERSONAS</h2>
+    <button class="btn btn-success" (click)="open(content)">NUEVA PERSONA</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of dataSource; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{row.Nom}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.lastname}}</td>
+                <td>{{ row.fecha | date: 'yyyy-MM-dd' }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="actualizar(row.id)">Editar</button>
+                    <button class="btn btn-danger" (click)="borrar(row.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">REGISTRO NUEVO</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <label>ID</label><br>
+                <input type="text" [(ngModel)]="Nom" [ngModelOptions]="{standalone: true}"><br>
+                <label>NOMBRE</label><br>
+                <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"><br>
+                <label>APELLIDO</label><br>
+                <input type="text" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}"><br>
+                <label for="dateOfBirth">FECHA REGISTRO</label><br>
+                <input type="text" id="dateOfBirth" [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}" name="dp" ngbDatepicker #dp="ngbDatepicker" />
+                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" value="Enviar" class="btn btn-outline-dark" (click)="save()">Save</button>
+        </div>
+    </ng-template>
+</div>
