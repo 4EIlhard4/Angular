@@ -20,7 +20,7 @@
                 <td>{{row.lastname}}</td>
                 <td>{{ row.fecha | date: 'yyyy-MM-dd' }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="actualizar(row.id)">Editar</button>
+                    <button class="btn btn-primary" (click)="openedit(content, row)">Editar</button>
                     <button class="btn btn-danger" (click)="borrar(row.id)">Eliminar</button>
                 </td>
             </tr>

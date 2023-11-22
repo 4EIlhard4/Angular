@@ -18,6 +18,8 @@ export class OtroComponent implements OnInit{
   fecha: NgbDateStruct | null = null;
   dataLenguajes: any = [];
   dataSource: any = [];
+  editingData: any = {};
+
 
   closeResult = "";
 
@@ -41,15 +43,19 @@ export class OtroComponent implements OnInit{
       }
     })
   }
-  private parseDateString(dateString: string): string | null {
-    if (dateString) {
-      const dateParts = dateString.split('-');
-      if (dateParts.length === 3) {
-        return `${dateParts[0]}-${dateParts[1]}-${dateParts[2]}`;
-      }
+  private parseDateString(dateString: string): NgbDateStruct | null {
+  if (dateString) {
+    const dateParts = dateString.split('-');
+    if (dateParts.length === 3) {
+      return {
+        year: parseInt(dateParts[0], 10),
+        month: parseInt(dateParts[1], 10),
+        day: parseInt(dateParts[2], 10)
+      };
     }
-    return null;
   }
+  return null;
+}
 
   save(){
     let body =
@@ -60,12 +66,21 @@ export class OtroComponent implements OnInit{
       fecha: this.fecha ? `${this.fecha.year}-${this.fecha.month}-${this.fecha.day}` : ''
     }
 
-    this.lenguaje.postLenguajes(body).subscribe((data)=>{
-      if(data!=null)
-      {
-        window.location.reload();
-      }
-    })
+    if (this.editingData.id) {
+      // Si hay un ID en editingData, entonces estás editando
+      this.lenguaje.updateLenguajes(this.editingData.id, body).subscribe((data) => {
+        if (data != null) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // Si no hay ID, entonces estás creando un nuevo registro
+      this.lenguaje.postLenguajes(body).subscribe((data) => {
+        if (data != null) {
+          window.location.reload();
+        }
+      });
+    }
   }
 
   borrar(id:string){
@@ -79,24 +94,28 @@ export class OtroComponent implements OnInit{
     })
   }
 
-  actualizar(id:string){
-    let aux = confirm("Esta Seguro de Actualizar")
-    let body = 
-    {
-      Nom: "",
-      name:  "",
-      lastname:  "",
-      fecha:  ""
-    }    
-    if(!aux) return
-    this.lenguaje.updateLenguajes(id, body).subscribe( (data) => {
-      if(data!=null)
-      {
-        window.location.reload();
-      }
-    })
-  }
 
+  openedit(content: TemplateRef<any>, rowData: any) {
+    this.editingData = { ...rowData }; // Copiar los datos para evitar cambios directos
+    this.Nom = this.editingData.Nom;
+    this.name = this.editingData.name;
+    this.lastname = this.editingData.lastname;
+    this.fecha = this.parseDateString(this.editingData.fecha);
+    
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        this.editingData = {}; // Limpiar datos de edición al cerrar el modal
+        this.Nom = "";
+        this.name = "";
+        this.lastname = "";
+        this.fecha = null;
+      }
+    );
+  }
 
   open(content: TemplateRef<any>) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
