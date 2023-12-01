@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="cell table-container">
+    <form>
+        <h1>Login</h1>
+        <label>Email</label><br>
+        <input type="text" [(ngModel)]="email" name="email"><br>
+        <label>Pass</label><br>
+        <input type="password" [(ngModel)]="pass" name="pass"><br><br>
+        <button (click)="login()">Entrar</button>
+    </form>
+    <button (click)="loginGoogle()">Login With Google</button>
+</div>

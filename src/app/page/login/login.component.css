@@ -1,0 +1,22 @@
+.cell {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(115%, 0%);
+    z-index: 0;
+}
+
+.cell.table-container {
+    width: 30%; /* Permitir que se ajuste al contenido */
+}
+  
+.cell.table-container table {
+    width: 30%; /* Ajustar al 100% del ancho del contenedor */
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}

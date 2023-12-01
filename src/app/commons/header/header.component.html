@@ -1,0 +1,14 @@
+<div>
+    <ul>
+        <li><a routerLink="/home">INICIO</a></li>
+        <li><a routerLink="/otro">REGISTRO PERSONAS</a></li>
+        <li><a routerLink="/logout">BIENVENIDO</a></li>
+        <li><a routerLink="/register">REGISTRO</a></li>
+        <li>
+            <a href="/home" (click)="salir()" *ngIf="user!=null">SALIR</a>
+        </li>
+        <li style="float: right">
+            <a class="active" routerLink="/login">LOGIN <span *ngIf="user!=null">{{user}}</span></a>
+        </li>
+    </ul>
+</div>

@@ -22,7 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
-    "firebase": "^10.6.0",
+    "firebase": "^10.7.0",
     "ng-particles": "^3.12.0",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",

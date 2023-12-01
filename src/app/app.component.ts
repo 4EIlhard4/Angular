@@ -7,10 +7,10 @@ import { loadSlim } from "tsparticles-slim";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Prueba_1';
   id = "tsparticles";
-
+  
     /* Starting from 1.19.0 you can use a remote url (AJAX request) to a JSON with the configuration */
     particlesUrl = "http://foo.bar/particles.json";
 
@@ -69,7 +69,7 @@ export class AppComponent {
                     enable: true,
                     area: 800,
                 },
-                value: 150,
+                value: 50,
             },
             opacity: {
                 value: 1,

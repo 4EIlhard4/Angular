@@ -3,6 +3,7 @@ import { ModalDismissReasons, NgbDateStruct, NgbDatepickerModule, NgbModal } fro
 import { FormBuilder, FormGroup, Validators} from '@angular/forms'
 import { LenguajesService } from 'src/app/services/lenguajes.service'
 import { NgForm } from '@angular/forms'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-otro',
@@ -26,8 +27,8 @@ export class OtroComponent implements OnInit{
   constructor(
     private modalService: NgbModal,
     public fb: FormBuilder,
-    private lenguaje: LenguajesService
-
+    private lenguaje: LenguajesService,
+    private authService: AuthService
     ){
 
   }
@@ -72,26 +73,38 @@ export class OtroComponent implements OnInit{
         if (data != null) {
           window.location.reload();
         }
+      },(error) => {
+        console.error('Error al editar:', error);
+      // Maneja el error de acuerdo a tus necesidades
       });
+      
     } else {
       // Si no hay ID, entonces estás creando un nuevo registro
       this.lenguaje.postLenguajes(body).subscribe((data) => {
         if (data != null) {
           window.location.reload();
         }
+      }, (error) => {
+        console.error('Error al registrar una nueva persona:', error);
+      // Maneja el error de acuerdo a tus necesidades
       });
     }
   }
 
   borrar(id:string){
-    let aux = confirm("Esta Seguro de Borrar")
-    if(!aux) return
-    this.lenguaje.deleteLenguajes(id).subscribe( (data) => {
-      if(data==null)
-      {
-        window.location.reload();
+    let aux = confirm("¿Estás seguro de borrar?");
+    if (!aux) return;
+    this.lenguaje.deleteLenguajes(id).subscribe(
+      (data) => {
+        if (data == null) {
+          window.location.reload();
+        }
+      },
+      (error) => {
+        console.error('Error al borrar:', error);
+      // Maneja el error de acuerdo a tus necesidades
       }
-    })
+    );
   }
 
 

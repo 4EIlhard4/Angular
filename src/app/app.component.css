@@ -5,3 +5,7 @@ ng-particles{
     bottom: 0px;
     z-index: -2;
 }
+a{
+    color: black;
+    z-index: -4;
+}
