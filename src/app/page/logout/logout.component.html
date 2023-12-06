@@ -1,5 +1,11 @@
 <app-header></app-header>
-<div class="cell">
-    <p>Bienvenido: {{user}} </p>
-    <button (click)="salir()">SALIR</button>
+<div class="cell table-container">
+  <form>
+      <h1>EDIT PROFILE</h1>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"><br>
+      <label for="lastName">Apellido:</label>
+      <input type="text" id="lastName" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}"><br>
+      <button (click)="saveProfile()">Guardar Cambios</button>
+  </form>
 </div>

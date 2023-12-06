@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="cell table-container">
     <h2>PERSONAS</h2>
-    <button class="btn btn-success" (click)="open(content)">NUEVA PERSONA</button>
+    <button *ngIf="autenticado" class="btn btn-success" (click)="open(content)">NUEVA PERSONA</button>
     <table class="table">
         <thead>
             <tr>
@@ -21,8 +21,8 @@
                 <td>{{row.lastname}}</td>
                 <td>{{ row.fecha | date: 'yyyy-MM-dd' }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="openedit(content, row)">Editar</button>
-                    <button class="btn btn-danger" (click)="borrar(row.id)">Eliminar</button>
+                    <button *ngIf="autenticado" class="btn btn-primary" (click)="openedit(content, row)">Editar</button>
+                    <button *ngIf="autenticado" class="btn btn-danger" (click)="borrar(row.id)">Eliminar</button>
                 </td>
             </tr>
         </tbody>

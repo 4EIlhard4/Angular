@@ -9,24 +9,26 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LogoutComponent implements OnInit{
 
-  user: any = "";
+  name: string = '';
+  lastName: string = '';
+  constructor(private authService:AuthService, private router: Router){};
 
+  ngOnInit(): void {
+    const currentUser = this.authService.getUser();
 
-  constructor(private auth:AuthService, private router:Router){};
-
-  ngOnInit(){
-    this.user = this.auth.getUser()?.displayName;
-    if(this.user == null){
-      this.user = this.auth.getUser()?.email;
+    if (currentUser) {
+      const [userFirstName, userLastName] = (currentUser.displayName || '').split(' ');
+      this.name = userFirstName || '';
+      this.lastName = userLastName || '';
     }
-  }  
+  }
 
-  salir()
-  {
-    this.auth.logout().then(res =>{
-      this.router.navigate(["/home"])
-    }).catch(error=>{
-      console.log(error);
-    })
+  saveProfile() {
+    this.authService.updateUser(this.name, this.lastName).then(resp =>{
+      this.router.navigate(['/home'])
+      alert("perfil actualizado")
+    }).catch(error => {
+        console.error('Error al actualizar el perfil:', error);
+      });
   }
 }

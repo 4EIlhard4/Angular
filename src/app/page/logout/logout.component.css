@@ -10,3 +10,13 @@
     transform: translate(115%, 0%);
     z-index: 0;
 }
+
+.cell.table-container {
+    width: 30%; /* Permitir que se ajuste al contenido */
+}
+  
+.cell.table-container table {
+    width: 30%; /* Ajustar al 100% del ancho del contenedor */
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}

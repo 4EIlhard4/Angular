@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms'
 import { LenguajesService } from 'src/app/services/lenguajes.service'
 import { NgForm } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth.service';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-otro',
@@ -20,7 +21,7 @@ export class OtroComponent implements OnInit{
   dataLenguajes: any = [];
   dataSource: any = [];
   editingData: any = {};
-
+  autenticado : boolean = false;
 
   closeResult = "";
 
@@ -34,6 +35,9 @@ export class OtroComponent implements OnInit{
   }
   ngOnInit()
   {
+    this.authService.getAuthState().subscribe((user)=>{
+      this.autenticado = user !== null;
+    });
     this.lenguaje.getLenguajes().subscribe( (data) => {
       console.log(data);
       for(var key in data)

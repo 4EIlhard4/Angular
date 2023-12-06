@@ -3,9 +3,13 @@
     <form>
         <h1>Registrar</h1>
         <label>Email</label><br>
-        <input type="text" [(ngModel)]="email" name="email"><br>
+        <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"><br>
         <label>Pass</label><br>
-        <input type="password" [(ngModel)]="pass" name="pass"><br><br>
+        <input type="password" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}"><br>
+        <label>Name</label><br>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"><br>
+        <label>LastName</label><br>
+        <input type="text" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}"><br><br>
         <button (click)="guardar()">Registrar</button>
     </form>
 </div>
